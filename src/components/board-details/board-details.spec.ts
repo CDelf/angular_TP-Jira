@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BoardDetails } from './board-details';
+import {provideMockStore} from '@ngrx/store/testing';
 
 describe('BoardDetails', () => {
   let component: BoardDetails;
@@ -8,7 +9,17 @@ describe('BoardDetails', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BoardDetails]
+      imports: [BoardDetails],
+      providers: [
+        provideMockStore({
+          initialState: {
+            boardState: {
+              boards: [],
+              selectedBoardId: null
+            }
+          }
+        })
+      ]
     })
     .compileComponents();
 

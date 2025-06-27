@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavigationBar } from './navigation-bar';
+import {ActivatedRoute} from '@angular/router';
 
 describe('NavigationBar', () => {
   let component: NavigationBar;
@@ -8,7 +9,10 @@ describe('NavigationBar', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavigationBar]
+      imports: [NavigationBar],
+      providers: [
+      { provide: ActivatedRoute, useValue: { params: {} } }
+    ]
     })
     .compileComponents();
 

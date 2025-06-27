@@ -74,4 +74,7 @@ on(addTask, (state, { boardId, listTitle, task }) => ({
         : board
     )
   }))
+
 );
+
+
