@@ -1,0 +1,17 @@
+.homeImg {
+  width: 30%;
+  height: auto;
+  border-radius: 10%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+* {
+  text-align: center;
+  color: beige;
+}
+
+h1 {
+  color : #B9FFE0;
+}
+

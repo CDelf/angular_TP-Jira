@@ -1,0 +1,21 @@
+<div class="newList">
+  <input
+    type="text"
+    placeholder="Nouvelle liste"
+    [value]="newListTitle"
+    (input)="onInput($event)"
+  />
+  <button (click)="addList()">+</button>
+</div>
+
+<div class="board">
+  @for (list of lists(); track list.title) {
+    <app-list
+      [title]="list.title"
+      [initialTasks]="list.tasks"
+      (delete)="removeList(list.title)">
+    </app-list>
+  } @empty {
+    Aucune liste disponible.
+  }
+</div>

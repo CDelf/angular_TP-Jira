@@ -1,0 +1,7 @@
+@if (show()) {
+  <div class="overlay" (click)="onClose()"></div>
+  <div class="modal">
+    <button class="close-btn" (click)="onClose()">✖</button>
+    <ng-content></ng-content>
+  </div>
+}

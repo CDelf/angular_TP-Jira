@@ -1,0 +1,70 @@
+<div class="list">
+  <!-- Message de modification de liste -->
+  @if (message()) {
+    <div class="message">
+      {{ message() }}
+    </div>
+  }
+
+  <!-- Titre et boutons ajout/suppression -->
+  <div class="list-header">
+    <h3>{{ title() }}</h3>
+    <button class="delete-list-btn" (click)="emitDelete()">✖</button>
+  </div>
+
+  <button class="add-task-btn" (click)="openModal()">Ajouter une tâche</button>
+
+  <hr/>
+
+  <!-- Affichage des tâches -->
+  <div class="tasks">
+    @for (task of initialTasks(); track task.description) {
+      <app-task [task]="task" (deleteTask)="removeTask(task.description)"></app-task>
+    } @empty {
+      Aucune tâche disponible.
+    }
+  </div>
+</div>
+
+
+<!-- Modal -->
+@if (showModal()) {
+  <div class="overlay" (click)="closeModal()"></div>
+  <app-modal [show]="showModal()" (close)="closeModal()">
+    <h4>Nouvelle tâche</h4>
+    <form [formGroup]="form" (ngSubmit)="addTask()">
+      <label>Description :</label><br>
+      <input formControlName="description" name="description" required/>
+      @if (form.get('description')?.errors?.['required']) {
+        <div class="error">
+          <small>Une description est requise.</small>
+        </div>
+      }
+      <br><br>
+
+      <label>Date limite :</label> <br>
+      <input type="date" formControlName="dueDate" name="dueDate" required/>
+      @if (form.get('dueDate')?.errors?.['required']) {
+        <div class="error">
+          <small>Une date est requise.</small>
+        </div>
+      }
+      <br><br>
+
+      <label>Priorité :</label><br>
+      <select formControlName="priority" name="priority" required>
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+      </select>
+      @if (form.get('priority')?.errors?.['required']) {
+        <div class="error">
+          <small>Précisez la priorité.</small>
+        </div>
+      }
+      <br><br>
+      <button class="submit-btn" type="submit" [disabled]="form.invalid">Ajouter</button>
+      <button class="cancel-btn" type="button" (click)="closeModal()">Annuler</button>
+    </form>
+  </app-modal>
+}

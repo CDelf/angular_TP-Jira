@@ -1,0 +1,29 @@
+<div class="task">
+  <div class="task-header">
+    <span class="task-title">{{ task()?.description }}</span>
+  </div>
+
+  <hr />
+
+  <div class="task-details">
+    <span>{{ task()?.dueDate }}</span>
+    <span> - {{ task()?.priority }}</span>
+  </div>
+
+  <div class="task-done">
+    <label>
+      <input type="checkbox" [checked]="task()?.done" (change)="openModal()" />
+      Terminé
+    </label>
+  </div>
+</div>
+
+<!-- Modal -->
+@if (showModal()) {
+  <div class="overlay" (click)="closeModal()"></div>
+  <app-modal [show]="showModal()" (close)="closeModal()">
+    <p> This will delete this task. Are you sure it's done? </p>
+    <button (click)="onDelete()">Confirm</button>
+    <button (click)="closeModal()">Cancel</button>
+  </app-modal>
+}

@@ -1,0 +1,53 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 20px;
+  border-bottom: 1px solid white;
+}
+
+.brand {
+  font-size: 2.8em;
+  font-weight: bold;
+  color: #c1f7c6;
+  text-shadow: 2px 2px 2px black;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #c1f7c6;
+  font-size: 1.5em;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: antiquewhite;
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: antiquewhite;
+  text-shadow: 1px 1px 2px black;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}

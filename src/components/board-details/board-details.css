@@ -1,0 +1,43 @@
+.create {
+  margin-top: 10px;
+}
+
+.board-list {
+  display: flex;
+  gap: 50px;
+  justify-content: flex-start;
+}
+
+.nav-links a {
+  color: #c1f7c6;
+  font-size: 1em;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: antiquewhite;
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: antiquewhite;
+  text-shadow: 1px 1px 2px black;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
