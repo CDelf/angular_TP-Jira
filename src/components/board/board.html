@@ -1,7 +1,7 @@
 <div class="newList">
   <input
     type="text"
-    placeholder="Nouvelle liste"
+    placeholder="List's title here..."
     [value]="newListTitle"
     (input)="onInput($event)"
   />
@@ -16,6 +16,6 @@
       (delete)="removeList(list.title)">
     </app-list>
   } @empty {
-    Aucune liste disponible.
+    No list available.
   }
 </div>

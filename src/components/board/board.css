@@ -29,3 +29,12 @@
   color: white;
   cursor: pointer;
 }
+
+input {
+  font-size: 1em;
+}
+
+button {
+  background-color: #4caf50;
+  font-size: 1em;
+}

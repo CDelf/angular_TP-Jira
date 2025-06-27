@@ -37,8 +37,7 @@ export class List {
 
     effect(() => {
       const tasks = this.initialTasks() || [];
-      console.log(`Liste "${this.title}" modifiée. Nouvelle valeur:`, tasks);
-      this.message.set(`✅ La liste "${this.title}" a été modifiée (${tasks.length} tâche(s)).`);
+      this.message.set(`✅Modified : (${tasks.length} task(s)).`);
       setTimeout(() => this.message.set(null), 3000);
     });
   }

@@ -12,7 +12,7 @@
     <button class="delete-list-btn" (click)="emitDelete()">✖</button>
   </div>
 
-  <button class="add-task-btn" (click)="openModal()">Ajouter une tâche</button>
+  <button class="add-task-btn" (click)="openModal()">Add a task</button>
 
   <hr/>
 
@@ -21,7 +21,7 @@
     @for (task of initialTasks(); track task.description) {
       <app-task [task]="task" (deleteTask)="removeTask(task.description)"></app-task>
     } @empty {
-      Aucune tâche disponible.
+      No task available.
     }
   </div>
 </div>
@@ -37,7 +37,7 @@
       <input formControlName="description" name="description" required/>
       @if (form.get('description')?.errors?.['required']) {
         <div class="error">
-          <small>Une description est requise.</small>
+          <small>Required description.</small>
         </div>
       }
       <br><br>
@@ -46,7 +46,7 @@
       <input type="date" formControlName="dueDate" name="dueDate" required/>
       @if (form.get('dueDate')?.errors?.['required']) {
         <div class="error">
-          <small>Une date est requise.</small>
+          <small>Due date required.</small>
         </div>
       }
       <br><br>
@@ -59,12 +59,12 @@
       </select>
       @if (form.get('priority')?.errors?.['required']) {
         <div class="error">
-          <small>Précisez la priorité.</small>
+          <small>Specify the priority.</small>
         </div>
       }
       <br><br>
-      <button class="submit-btn" type="submit" [disabled]="form.invalid">Ajouter</button>
-      <button class="cancel-btn" type="button" (click)="closeModal()">Annuler</button>
+      <button class="submit-btn" type="submit" [disabled]="form.invalid">Add</button>
+      <button class="cancel-btn" type="button" (click)="closeModal()">Cancel</button>
     </form>
   </app-modal>
 }
